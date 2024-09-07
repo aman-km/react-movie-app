@@ -4,15 +4,6 @@ import { Link } from 'react-router-dom';
 import { context } from '../Context'; // Make sure this path is correct
 
 const SingleMovie = ({ movies }) => {
-  const { wcount, setWcount } = useContext(context);
-
-
-  const addition = () => {
-    setWcount(wcount + 1);
-    console.log(wcount);
-
-    
-  };
 
   return (
     <div>
@@ -35,9 +26,11 @@ const SingleMovie = ({ movies }) => {
           }}>
             {movies.overview || "No description available."}
           </Card.Text>
-          <Button variant="success" onClick={addition}>
-            Add to Watchlist
+          <Link to={`/movies/${movies.id}`}>
+          <Button variant="primary">
+            More Details
           </Button>
+          </Link>
         </Card.Body>
       </Card>
     </div>

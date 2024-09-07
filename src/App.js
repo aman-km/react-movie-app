@@ -33,11 +33,6 @@ function App() {
     fetchData();
   }, []);
 
-  
-
-
-
-
   return (
     <BrowserRouter>
       <Container>
@@ -48,12 +43,11 @@ function App() {
             <Navbar.Collapse id="navbarScroll">
               <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
                 <Nav.Link as={Link} to='/'>Home</Nav.Link>
-                <Nav.Link href="#action1">About</Nav.Link>
                 <Nav.Link as={Link} to='/register'>Register</Nav.Link>
               </Nav>
 
               <SearchForm setFilmS={setFilmS} /> 
-              <Nav.Link as={Link} to='/register' style={{position:'relative',marginLeft:'10px'}}>Watchlist<span style={{position:'absolute', color:'red',left:'60px',bottom:'8px', fontWeight:'700'}}>{wcount}</span></Nav.Link>
+              <Nav.Link as={Link} to='/watchlist' style={{position:'relative',marginLeft:'10px'}}>Watchlist<span style={{position:'absolute', color:'red',left:'60px',bottom:'8px', fontWeight:'700'}}>{wcount}</span></Nav.Link>
             </Navbar.Collapse>
           </Container>
         </Navbar>
@@ -61,11 +55,12 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home films={Film} />} />
-        <Route path="/movies/:title" element={<MovieID result={Film} />} />
+        <Route path="/react-movie-app" element={<Home films={Film}/>}/>
+        <Route path="/movies/:id" element={<MovieID result={Film} />} />
         <Route path="/search" element={<SearchQuery filmS={filmS} />} />
         <Route path="/register" element={<Register />}/>
-        <Route path="/wathclist" element={<Watchlist />} />
-        <Route path="/movies/:id" element={<MovieID movies={Film}/>}/>
+        <Route path="/watchlist" element={<Watchlist />} />
+
       </Routes>
     </BrowserRouter>
   );

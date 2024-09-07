@@ -7,7 +7,7 @@ export const WatchlistProvider = ({ children }) => {
   const [watchlist, setWatchlist] = useState([]);
 
   return (
-    <context.Provider value={{ wcount, setWcount }}>
+    <context.Provider value={{ wcount, setWcount, watchlist, setWatchlist }}>
       {children}
     </context.Provider>
   );

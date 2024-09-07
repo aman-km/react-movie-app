@@ -1,21 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router";
+import { context } from "../Context";
+import { Link } from "react-router-dom";
 
 const MovieID = ({ result}) => {
-  const { title } = useParams();
+  const { id } = useParams();
+  const movieId = result.find((element) => element.id === Number(id));
 
-  const normalize = (str) => str.trim().toLowerCase().replace(/s+/g, '+');
+  // Use Contexts
+  const { wcount, setWcount } = useContext(context);
+  const {watchlist, setWatchlist} = useContext(context);
 
-  console.log(title);
+  const watchlistF = (ele) => {
+    setWcount(wcount+1);
+    setWatchlist([...watchlist, movieId]);
+  }
 
-  const filmTitle = result.find(
-    (element) => element.title && normalize(element.title) === normalize(title)
-  );
 
-  // console.log(filmTitle);
-
-  if (!filmTitle) {
+  if (!id) {
     return <div>Loading or movie not found...</div>; // Handle cases where the movie isn't found
   }
 
@@ -25,15 +28,17 @@ const MovieID = ({ result}) => {
         <Row>
           <Col> 
             <img
-              src={`https://image.tmdb.org/t/p/original${filmTitle.backdrop_path}`}
-              alt={filmTitle.title || filmTitle.name}
+              src={`https://image.tmdb.org/t/p/original${movieId.backdrop_path}`}
+              alt={movieId.title || movieId.name}
               style={{borderRadius:'20px', height:'500px', width:'800px', marginTop:'10px'}}
             />
           </Col>
           <Col className="align-items-center">
-          <h1>{filmTitle.title || filmTitle.name}</h1>
-            <p>{filmTitle.overview}</p>
-            <Button>Add to Watch List</Button>
+          <h1>{movieId.title || movieId.name}</h1>
+            <p>{movieId.overview}</p>
+            <Link to={'/watchlist'}>
+            <Button onClick={watchlistF}>Add to Watch List</Button>
+            </Link>
           </Col>
           </Row>
 
