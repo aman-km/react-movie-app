@@ -3,6 +3,7 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router";
 import { context } from "../Context";
 import { Link } from "react-router-dom";
+import '../App.css'
 
 const MovieID = ({ result}) => {
   const { id } = useParams();
@@ -31,6 +32,7 @@ const MovieID = ({ result}) => {
               src={`https://image.tmdb.org/t/p/original${movieId.backdrop_path}`}
               alt={movieId.title || movieId.name}
               style={{borderRadius:'20px', height:'500px', width:'800px', marginTop:'10px'}}
+              id="single-image"
             />
           </Col>
           <Col className="align-items-center">

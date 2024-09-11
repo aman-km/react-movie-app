@@ -6,9 +6,11 @@ import { Link } from 'react-router-dom';
 function Watchlist() {
 
   const { watchlist, setWatchlist } = useContext(context);
+  const {wcount, setWcount} = useContext(context);
 
   const clear = () => {
     setWatchlist([]);
+    setWcount(0);
     
   }
 
@@ -23,6 +25,7 @@ function Watchlist() {
               src={movies.backdrop_path ? `https://image.tmdb.org/t/p/original${movies.backdrop_path}` : 'https://placehold.co/600x400/EEE/31343C'}
               alt={movies.title}
               style={{ width: '250px', height: '180px' }}
+              id='watchlist-img'
             />
             <Card.Body>
               <Card.Title>{movies.title || movies.name}</Card.Title>

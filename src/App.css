@@ -1,0 +1,32 @@
+
+/* Responsive CSS */
+
+@media only screen and (max-width: 600px) {
+          #card-img{
+            width: 100% !important;
+            height: 100px !important;
+        }
+        #single-image{
+          width: 300px !important;
+          height: 250px !important;
+          border-radius: 10px !important;
+          margin-bottom: 10px;
+        }
+        #carousel{
+          height: 60vh !important;
+        }
+        #carousel-image{
+          height: 60vh ;
+        }
+        #watchlist{
+          margin-top: 10px;
+
+        }
+
+        #watchlist-img{
+          width: 100% !important;
+          height: 100% !important;
+        }
+
+        
+  }

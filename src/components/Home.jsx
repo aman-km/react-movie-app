@@ -12,7 +12,7 @@ const Home = ({ films }) => {
 
   return (
     <div>
-      <Carousel>
+      <Carousel id='carousel'>
         {films.map((film, index) => (
           <Carousel.Item key={index}>
            <Link to={`/movies/${film.id}`}>
@@ -20,6 +20,7 @@ const Home = ({ films }) => {
               src={`https://image.tmdb.org/t/p/original${film.backdrop_path}`} 
               alt={film.title || film.name} 
               width={"100%"} 
+              id='carousel-image'
             />
             </Link>
             

@@ -38,7 +38,7 @@ function App() {
       <Container>
         <Navbar expand="lg" className="bg-body-tertiary" style={{borderBottom:'1px solid black'}}>
           <Container fluid>
-            <Navbar.Brand href="#">TheMovieApp</Navbar.Brand>
+            <Navbar.Brand as={Link} to='/'>TheMovieApp</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
               <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
@@ -47,7 +47,7 @@ function App() {
               </Nav>
 
               <SearchForm setFilmS={setFilmS} /> 
-              <Nav.Link as={Link} to='/watchlist' style={{position:'relative',marginLeft:'10px'}}>Watchlist<span style={{position:'absolute', color:'red',left:'60px',bottom:'8px', fontWeight:'700'}}>{wcount}</span></Nav.Link>
+              <Nav.Link as={Link} to='/watchlist' style={{position:'relative',marginLeft:'10px'}} id="watchlist">Watchlist<span style={{position:'absolute', color:'red',left:'60px',bottom:'8px', fontWeight:'700'}} id="wcount">{wcount}</span></Nav.Link>
             </Navbar.Collapse>
           </Container>
         </Navbar>

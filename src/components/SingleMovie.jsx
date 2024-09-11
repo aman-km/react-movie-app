@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { context } from '../Context'; // Make sure this path is correct
+import '../App.css'
 
 const SingleMovie = ({ movies }) => {
 
@@ -13,6 +14,7 @@ const SingleMovie = ({ movies }) => {
           src={`https://image.tmdb.org/t/p/original${movies.backdrop_path}`} 
           alt={movies.title}
           style={{ width: '250px', height: '180px' }} 
+          id="card-img"
         />
         <Card.Body>
           <Card.Title>{movies.title || movies.name}</Card.Title>
