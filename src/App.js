@@ -24,7 +24,7 @@ function App() {
   const { wcount, setWcount } = useContext(context);
 
   const fetchData = async () => {
-    const request = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=a131437a21e6a8972f940867927dc660`);
+    const request = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=[your-api-key]`);
     const movies = await request.json();
     setFilm(movies.results);
   };
