@@ -13,7 +13,7 @@ const SearchForm = ({ setFilmS }) => {
   const handleSearch = async (event) => {
     event.preventDefault();
     const query = Search.trim().replace(/\s+/g, '+');
-    const sRequest = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=a131437a21e6a8972f940867927dc660&query=${query}`);
+    const sRequest = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=[your-api-key]&query=${query}`);
     const sMovies = await sRequest.json();
     setFilmS(sMovies.results);
     navigate('/search'); 
